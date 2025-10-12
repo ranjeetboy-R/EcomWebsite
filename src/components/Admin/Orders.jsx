@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Layout from "./layout";
+import Layout from "./Layout";
 import firebaseAppConfig from '../../util/firebase-config'
 import { getFirestore, getDocs, collection, doc, updateDoc } from "firebase/firestore";
 import Swal from "sweetalert2";

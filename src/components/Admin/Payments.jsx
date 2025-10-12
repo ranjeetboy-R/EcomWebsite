@@ -1,4 +1,4 @@
-import Layout from "./layout";
+import Layout from "./Layout";
 
 const  Payments = () => {
     const payments = [
