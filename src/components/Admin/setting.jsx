@@ -239,7 +239,7 @@ const Profile = () => {
     return (
         <Layout>
             <div className="md:w-[90%] mx-auto md:p-5 p-7 flex flex-col md:my-10">
-                <h1 className="md:text-xl font-semibold">
+                <h1 className="md:text-xl font-bold">
                     <i className="ri-shopping-cart-line mr-2"></i>
                     My Orders
                 </h1>
@@ -249,14 +249,14 @@ const Profile = () => {
                         orders.map((items, index) => (
                             <div key={index} className="flex gap-10 shadow-md p-5 border border-slate-100">
                                 <img src={items.image} alt={index} className="w-[100px] h-[140px] rounded object-cover object-top " />
-                                <div className="flex flex-col gap-1">
-                                    <h1 className="text-xl font-semibold">{items.title}</h1>
-                                    <div className="flex gap-3">
+                                <div className="flex flex-col gap-2">
+                                    <h1 className="md:text-xl leading-tight text-md font-semibold">{items.title}</h1>
+                                    <div className="flex gap-3 md:text-md text-xs">
                                         <p className="font-semibold">₹{(items.price - ((items.price * items.discount) / 100)).toFixed(0)}</p>
                                         <del>{items.price}</del>
                                         <p>{items.discount}% Discount</p>
                                     </div>
-                                    <p className="capitalize">{items.description.slice(0,50)}</p>
+                                    <p className="capitalize font-mono md:text-md text-xs">{items.description.slice(0,50)}</p>
                                     <button className={` capitalize ${getStatusColor(items.status)} px-3 mt-2 py-1 text-sm w-fit text-white rounded `}>{items.status}</button>
                                 </div>
                             </div>
@@ -266,11 +266,11 @@ const Profile = () => {
             </div>
             
             <div className="md:w-[60%] mx-auto md:p-5 p-7 flex flex-col md:shadow-lg md:mb-10 md:border border-slate-100 rounded-lg ">
-                <h1 className="md:text-xl font-semibold">
+                <h1 className="md:text-xl font-bold">
                     <i className="ri-user-follow-line mr-2"></i>
                     My Profile
                 </h1>
-                <hr className="mt-2 border border-slate-100" />
+                <hr className="my-2 border border-slate-100" />
                 <div className="flex flex-col md:p-5">
                     <div id="file" className="relative w-[150px] h-[150px] mx-auto rounded-full">
                         {
@@ -287,38 +287,38 @@ const Profile = () => {
                             accept="image/*"
                             className="absolute top-0 cursor-pointer left-0 w-full h-full rounded-full opacity-0" />
                     </div>
-                    <form onSubmit={saveProfileInfo} className="grid grid-cols-2 gap-5 mt-5">
+                    <form onSubmit={saveProfileInfo} className="md:grid grid-cols-2 space-y-4 md:gap-5 gap-3 mt-5">
                         <div className="flex flex-col">
-                            <label className="font-semibold">Fullname</label>
+                            <label className="font-semibold md:text-md text-sm">Fullname</label>
                             <input
                                 onChange={formValue}
                                 type="text"
                                 name="fullname"
                                 value={form.fullname}
-                                className="capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
+                                className="capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none md:text-md text-sm shadow-md" />
                         </div>
                         <div className="flex flex-col">
-                            <label className="font-semibold">Email Id</label>
+                            <label className="font-semibold md:text-md text-sm">Email Id</label>
                             <input
                                 readOnly
                                 onChange={formValue}
                                 type="email"
                                 name="email"
                                 value={session.email}
-                                className="bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
+                                className="bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none md:text-md text-sm shadow-md" />
                         </div>
-                        <button className="col-span-2 hover:bg-cyan-600 w-fit px-7 py-2 text-white rounded-md bg-emerald-600 mt-3">
+                        <button className="col-span-2 hover:bg-cyan-600 w-fit md:px-7 px-4 py-2 text-white rounded-md bg-emerald-600 md:mt-3 md:text-md text-xs mt-2">
                             <i className="ri-file-edit-line mr-2"></i>
                             Update
                         </button>
                     </form>
                     <div className="flex flex-col mt-10">
-                        <h1 className="text-2xl font-semibold">
+                        <h1 className="text-2xl font-bold">
                             <i className="ri-home-office-line mr-2"></i>
                             Delivery Address
                         </h1>
 
-                        <form onSubmit={isAddress ? saveAddress : updateAddress} className="grid grid-cols-2 gap-3 mt-5">
+                        <form onSubmit={isAddress ? saveAddress : updateAddress} className="md:grid space-y-3 grid-cols-2 md:text-md text-sm gap-5 mt-5">
                             <div className="flex flex-col">
                                 <label className="font-semibold">Mobile No.</label>
                                 <input
@@ -328,7 +328,7 @@ const Profile = () => {
                                     name="mobile"
                                     value={address.mobile}
                                     placeholder="Enter your mobile no."
-                                    className="capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
+                                    className="md:text-md text-sm capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
                             </div>
                             <div className="flex flex-col">
                                 <label className="font-semibold">City</label>
@@ -339,7 +339,7 @@ const Profile = () => {
                                     name="city"
                                     value={address.city}
                                     placeholder="Enter your city"
-                                    className="capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
+                                    className="md:text-md text-sm capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
                             </div>
                             <div className="flex flex-col">
                                 <label className="font-semibold">State</label>
@@ -350,7 +350,7 @@ const Profile = () => {
                                     name="state"
                                     value={address.state}
                                     placeholder="Enter your state"
-                                    className="capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
+                                    className="md:text-md text-sm capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
                             </div>
                             <div className="flex flex-col">
                                 <label className="font-semibold">Country</label>
@@ -361,7 +361,7 @@ const Profile = () => {
                                     name="country"
                                     value={address.country}
                                     placeholder="Enter your country"
-                                    className="capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
+                                    className="md:text-md text-sm capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
                             </div>
                             <div className="flex flex-col">
                                 <label className="font-semibold">Postal Code</label>
@@ -372,7 +372,7 @@ const Profile = () => {
                                     name="postal"
                                     value={address.postal}
                                     placeholder="Enter your postal code"
-                                    className="bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
+                                    className="md:text-md text-sm bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
                             </div>
                             <div className="flex flex-col col-span-2">
                                 <label className="font-semibold">Area/Street/Village</label>
@@ -383,7 +383,7 @@ const Profile = () => {
                                     name="address"
                                     value={address.address}
                                     placeholder="Enter your address"
-                                    className="capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full outline-none text-[15px] shadow-md" />
+                                    className="md:text-md text-sm capitalize bg-inherit border border-slate-100 mt-1 p-2 hover:px-3 rounded w-full h-[70px] outline-none text-[15px] shadow-md" />
                             </div>
                             {
                                 isAddress ?
@@ -392,7 +392,7 @@ const Profile = () => {
                                         Save Address
                                     </button>
                                     :
-                                    <button className="col-span-2 hover:bg-emerald-600 w-fit px-7 py-2 text-white rounded-md bg-rose-600 mt-3">
+                                    <button className="col-span-2 hover:bg-emerald-600 w-fit md:px-7 px-4 py-2 text-white rounded-md bg-rose-600 mt-3">
                                         <i className="ri-file-edit-line mr-2"></i>
                                         Update Address
                                     </button>

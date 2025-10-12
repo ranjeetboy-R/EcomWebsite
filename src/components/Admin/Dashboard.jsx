@@ -89,17 +89,18 @@ const Dashboard = () => {
 
     return (
         <Layout>
-            <div className="flex flex-col bg-slate-100 gap-3">
+            <div className="flex flex-col bg-slate-100 md:gap-3">
+                <h1 className="px-7 pt-3 text-xl text-cyan-600 font-bold">Welcome To Dashboard</h1>
                 <div className="grid md:grid-cols-4 grid-cols-2 md:gap-10 gap-5 md:p-8 p-5 md:w-[80%] mx-auto">
                     <div className="bg-cyan-200 p-3 flex justify-around rounded-md shadow-[3px_3px_10px_rgba(0,0,0,0.3)] cursor-pointer">
                         <div className="flex flex-col gap-1 px-2">
                             <div className="w-10 h-10 flex justify-center text-white items-center bg-cyan-500 border border-white rounded-full">
                                 <i className="ri-shopping-cart-line"></i>
                             </div>
-                            <h1 className="font-bold font-mono text-lg">Proudcts</h1>
+                            <h1 className="font-bold font-mono md:text-lg">Proudcts</h1>
                         </div>
                         <div className="flex items-center justify-center border-l-2 border-gray-200">
-                            <h1 className="text-2xl font-bold rounded-lg font-serif text-gray-600 stroke-current px-3 py-2">5676</h1>
+                            <h1 className="md:text-2xl font-bold rounded-lg font-serif text-gray-600 stroke-current px-3 py-2">308</h1>
                         </div>
                     </div>
                     <div className="bg-rose-200 p-3 flex justify-around rounded-md shadow-[3px_3px_10px_rgba(0,0,0,0.3)] cursor-pointer">
@@ -107,10 +108,10 @@ const Dashboard = () => {
                             <div className="w-10 h-10 flex justify-center text-white items-center bg-rose-500 border border-white rounded-full">
                                 <i className="ri-handbag-line"></i>
                             </div>
-                            <h1 className="font-bold font-mono text-lg">Orders</h1>
+                            <h1 className="font-bold font-mono md:text-lg">Orders</h1>
                         </div>
                         <div className="flex items-center justify-center border-l-2 border-gray-200">
-                            <h1 className="text-2xl font-bold rounded-lg font-serif text-gray-600 stroke-current px-3 py-2">5676</h1>
+                            <h1 className="md:text-2xl font-bold rounded-lg font-serif text-gray-600 stroke-current px-3 py-2">467</h1>
                         </div>
                     </div>
                     <div className="bg-emerald-200 p-3 flex justify-around rounded-md shadow-[3px_3px_10px_rgba(0,0,0,0.3)] cursor-pointer">
@@ -118,10 +119,10 @@ const Dashboard = () => {
                             <div className="w-10 h-10 flex justify-center text-white items-center bg-emerald-500 border border-white rounded-full">
                                 <i className="ri-wallet-line"></i>
                             </div>
-                            <h1 className="font-bold font-mono text-lg">Payments</h1>
+                            <h1 className="font-bold font-mono md:text-lg">Payments</h1>
                         </div>
                         <div className="flex items-center justify-center border-l-2 border-gray-200">
-                            <h1 className="text-2xl font-bold rounded-lg font-serif text-gray-600 stroke-current px-3 py-2">5676</h1>
+                            <h1 className="md:text-2xl font-bold rounded-lg font-serif text-gray-600 stroke-current px-3 py-2">467</h1>
                         </div>
                     </div>
                     <div className="bg-violet-200 p-3 flex justify-around rounded-md shadow-[3px_3px_10px_rgba(0,0,0,0.3)] cursor-pointer">
@@ -129,14 +130,14 @@ const Dashboard = () => {
                             <div className="w-10 h-10 flex justify-center text-white items-center bg-violet-500 border border-white rounded-full">
                                 <i className="ri-group-line"></i>
                             </div>
-                            <h1 className="font-bold font-mono text-lg">Customers</h1>
+                            <h1 className="font-bold font-mono md:text-lg">Customers</h1>
                         </div>
                         <div className="flex items-center justify-center border-l-2 border-gray-200">
-                            <h1 className="text-2xl font-bold rounded-lg font-serif text-gray-600 stroke-current px-3 py-2">5676</h1>
+                            <h1 className="md:text-2xl font-bold rounded-lg font-serif text-gray-600 stroke-current px-3 py-2">324</h1>
                         </div>
                     </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-10 w-full md:px-10 px-5">
+                <div className="grid md:grid-cols-2 md:gap-10 gap-5 w-full md:px-10 px-5">
                     <div className="p-5 shadow-lg rounded-lg bg-white">
                         <h1 className="font-semibold">
                             <i className="ri-price-tag-3-line mr-2"></i>
@@ -162,8 +163,8 @@ const Dashboard = () => {
                         />
                     </div>
                 </div>
-                <div className="w-full md:p-10 p-5">
-                    <div className="flex gap-3 md:flex-row flex-col md:justify-around items-center rounded-lg md:px-10 px-5 md:py-10 py-5 bg-slate-600 text-white">
+                <div className="w-full md:p-10 pt-5">
+                    <div className="flex gap-3 md:flex-row flex-col md:justify-around items-center md:rounded-lg md:px-10 px-5 md:py-10 py-5 bg-slate-600 text-white">
                         <img src="/images/user.jpg" alt="user" className="w-24 h-24 rounded-full" />
                         <div className="flex flex-col gap-3 items-center md:w-[70%]">
                             <h1 className="md:text-3xl text-xl font-bold text-center">Dashboard Report & Analytics</h1>

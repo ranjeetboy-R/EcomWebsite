@@ -22,7 +22,7 @@ const Product = () => {
     const [productModel, setProductModel] = useState(false)
     const [productForm, setProductForm] = useState(model)
     const [edit, setEdit] = useState(null)
-    const [ind, setInd] = useState(null) 
+    const [ind, setInd] = useState(null)
 
     const productModelClose = () => {
         setEdit(null)
@@ -178,7 +178,7 @@ const Product = () => {
                         onClick={() => { setProductModel(true) }}
                         className="bg-cyan-600 rounded text-white py-2 text-sm px-3">
                         <i className="ri-add-line mr-2"></i>
-                        Add New Product
+                        Create Now
                     </button>
                 </div>
                 <div className="grid md:grid-cols-3 w-full grid-cols-2 md:gap-8 gap-5 py-10">
@@ -187,12 +187,12 @@ const Product = () => {
                             <div key={index} className="flex flex-col gap-1 shadow-lg md:hover:scale-105">
 
                                 <div id="file" className="relative rounded border">
-                                    <div className="md:h-[250px] h-[180px] w-full">
+                                    <div className="md:h-[250px] h-[120px] w-full">
                                         {
                                             (loading && ind === index) ?
                                                 <img src="/images/loading2.gif" alt="Loading..." className="object-cover object-top w-full h-full" />
                                                 :
-                                                <img src={items.image ? items.image : "/images/selectImage.svg"} alt="" className="object-cover object-top w-full h-full" />
+                                                <img src={items.image ? items.image : "/images/selectImage.svg"} alt={index.image} className="object-cover object-top w-full h-full" />
                                         }
                                     </div>
                                     <div id="profile_img" className="flex flex-col justify-center items-center absolute top-0 w-full h-full left-0 rounded bg-black/80">
@@ -211,9 +211,9 @@ const Product = () => {
                                 </div>
 
                                 <div className="flex flex-col p-3">
-                                    <div className="flex justify-between">
-                                        <h1 className="font-semibold md:text-lg text-sm text-cyan-700 capitalize">{items.title}</h1>
-                                        <div className="flex gap-3">
+                                    <div className="flex md:flex-row flex-col justify-between">
+                                        <h1 className="font-semibold md:text-lg text-[12px] text-cyan-700 capitalize">{items.title}</h1>
+                                        <div className="flex md:gap-3 gap-2">
                                             <button onClick={() => updateProduct(items)} className="px-1 py-1 text-gray-700">
                                                 <i className="ri-file-edit-line"></i>
                                             </button>

@@ -5,8 +5,8 @@ const Contact = () => {
         <Layout>
             <div className="flex flex-col md:gap-10 gap-5 mb-5">
                 <img src="/images/c2.jpg" alt="c1" className="w-full md:h-[400px] h-[200px]" />
-                <div className="flex flex-col gap-5 md:w-[45%] w-[95%] mx-auto shadow-lg border border-slate-50 rounded md:p-10 p-5">
-                    <h1 className="font-semibold font-mono text-3xl text-center">Contact Our Team!</h1>
+                <div className="flex flex-col gap-5 md:w-[45%] w-[95%] mx-auto shadow-lg border-2 border-slate-100 rounded-lg md:p-10 p-5 pb-8">
+                    <h1 className="font-bold font-mono md:text-3xl text-2xl text-center">Contact Our Team!</h1>
                     <div className="flex flex-col">
                         <label className="text-[500] text-md font-semibold">Your Name</label>
                         <input required type="text" name="fullname" placeholder="Enter your fullname"

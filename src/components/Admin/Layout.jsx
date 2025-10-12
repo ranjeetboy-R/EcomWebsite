@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
     const Location = useLocation()
 
     const aside = () => {
-        setOpen(open === 350 ? 0 : 350)
+        setOpen(open === 250 ? 0 : 250)
         setAsideItem(!false)
     }
 
@@ -80,7 +80,7 @@ const Layout = ({ children }) => {
                                     <i className="ri-seo-line"></i>
                                     <Link className="font-bold">E Com Online</Link>
                                 </div>
-                                <button onClick={aside} className=" w-8 h-8 border rounded bg-cyan-700 hover:bg-cyan-500 text-white">
+                                <button onClick={aside} className=" md:w-8 md:h-8 w-6 h-6 border rounded bg-cyan-700 hover:bg-cyan-500 text-white">
                                     <i className="ri-close-fill"></i>
                                 </button>
                             </div>
@@ -136,10 +136,10 @@ const Layout = ({ children }) => {
                         <img onClick={() => { setProfile(!profile) }} src={(session && session.photoURL) || "/images/user.jpg"} alt="user" className="w-8 h-8 cursor-pointer rounded-full" />
                     </div>
                 </div>
-                <div onClick={()=>setOpen(open === 350 && 0)} className="relative w-full h-[87%] overflow-y-auto bg-white">
+                <div onClick={()=>setOpen(open === 250 && 0)} className="relative w-full h-[87%] overflow-y-auto bg-white">
                     {
                         profile &&
-                        <div className="w-[300px] rounded-b-md shadow-[-3px_3px_10px_rgba(0,0,0,0.3)] fixed top-[90px] right-0 float-right flex flex-col animate__animated animate__fadeIn animate__faster z-50 bg-zinc-50">
+                        <div className="w-[300px] rounded-b-md shadow-[-3px_3px_10px_rgba(0,0,0,0.3)] fixed top-[90px] right-0 float-right flex flex-col animate__animated animate__fadeIn animate__faster z-40 bg-zinc-50">
                             <div className="flex gap-5 font-semibold items-center p-5 shadow-md">
                                 <div>
                                     <img src={(session && session.photoURL) || "/images/user.jpg"} alt="user" className="w-7 h-7 cursor-pointer rounded-full" />

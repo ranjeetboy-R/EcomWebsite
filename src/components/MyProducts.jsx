@@ -14,6 +14,7 @@ const MyProducts = () => {
 
     const [product, setProduct] = useState([]);
     const [address, setAddress] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -28,6 +29,7 @@ const MyProducts = () => {
 
     useEffect(() => {
         const req = async () => {
+            setLoading(true)
             const snapshot = await getDocs(collection(db, "products"))
             const tem = []
             snapshot.forEach((doc) => {
@@ -36,6 +38,7 @@ const MyProducts = () => {
                 tem.push(allProducts)
             })
             setProduct(tem)
+            setLoading(false)
         }
         req()
     }, [])
@@ -84,17 +87,16 @@ const MyProducts = () => {
             const col = collection(db, "addresses")
             const q = query(col, where("userId", "==", session.uid))
             const snapshot = await getDocs(q)
-            if(snapshot.empty){
+            if (snapshot.empty) {
                 Swal.fire({
                     icon: 'info',
                     title: 'Please update your address'
                 })
-                .then((result)=>{
-                    if(result.isConfirmed)
-                    {
-                        navigate('/profile#address')
-                    }
-                })
+                    .then((result) => {
+                        if (result.isConfirmed) {
+                            navigate('/profile#address')
+                        }
+                    })
                 return false;
             }
             product.userId = session.uid
@@ -111,6 +113,20 @@ const MyProducts = () => {
         }
     }
 
+    if (loading) {
+        return (
+            <div className="fixed top-0 left-0 z-50 bg-white h-screen flex-col gap-4 w-full flex items-center justify-center">
+                <div
+                    className="w-24 h-24 border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-cyan-400 border-b-amber-400 border-l-green-400 border-r-blue-400 rounded-full"
+                >
+                    <div
+                        className="w-16 h-16 border-8 border-transparent text-red-400 text-2xl animate-spin flex items-center justify-center border-b-rose-400 border-t-fuchsia-400 rounded-full"
+                    ></div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div>
             {/* product section */}
@@ -119,25 +135,25 @@ const MyProducts = () => {
                     {
                         product.map((items, index) => (
                             <div key={index} className="flex flex-col gap-1 shadow-lg border">
-                                <img src={items.image} alt="images{index}" className="rounded md:h-[250px] h-[200px] object-cover object-top md:hover:scale-105" />
+                                <img src={items.image} alt="images{index}" className="rounded md:h-[250px] h-[120px] object-cover object-top md:hover:scale-105" />
                                 <div className="flex flex-col p-3">
-                                    <h1 className="md:text-lg text-sm text-zinc-500 capitalize">{items.title}</h1>
-                                    <div className="flex md:gap-3 gap-2 md:text-md text-sm mt-1 whitespace-nowrap">
+                                    <h1 className="md:text-lg text-sm font-semibold leading-tight text-zinc-500 capitalize">{items.title}</h1>
+                                    <div className="flex md:gap-3 gap-2 md:text-md text-[12px] mt-1 whitespace-nowrap">
                                         <label className="font-semibold text-cyan-700">₹{items.price - ((items.price * items.discount) / 100)}</label>
                                         <del className="font-semibold  text-black/80">₹{items.price}</del>
                                         <label className="font-semibold text-black/80">{items.discount}% off</label>
                                     </div>
                                 </div>
 
-                                <div className="flex px-3 pb-3">
+                                <div className="flex md:px-3 md:pb-3 whitespace-nowrap">
                                     <button
                                         onClick={() => buyNow(items)}
                                         type="button"
-                                        className="w-full text-white text-[12px] hover:bg-rose-700 bg-cyan-700 py-2">
+                                        className="w-full text-white md:text-[12px] text-[10px] hover:bg-rose-700 bg-cyan-700 py-2">
                                         <i className="ri-shopping-bag-line mr-1"></i> Buy Now</button>
                                     <button
                                         onClick={() => addToCart(items)}
-                                        className="w-full text-slate-700 text-[12px] hover:text-white hover:bg-rose-700 hover:border-rose-700 border py-2">
+                                        className="w-full text-slate-700 md:text-[12px] text-[10px] hover:text-white hover:bg-rose-700 hover:border-rose-700 border py-2">
                                         <i className="ri-shopping-cart-line mr-1"></i> Add to Cart</button>
                                 </div>
                             </div>

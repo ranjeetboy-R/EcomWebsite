@@ -243,12 +243,12 @@ const Layout = ({ children, update }) => {
                         <div className="flex flex-col gap-4">
                             <div className="relative">
                                 <input type="text" name="email" placeholder="Enter Email Id..."
-                                    className="w-full py-2 px-2 hover:px-3 text-sm rounded-sm bg-transparent border text-white border-slate-400 hover:border-white outline-none" />
+                                    className="w-full py-3 px-2 hover:px-3 text-sm rounded-md bg-transparent border text-white border-slate-400 hover:border-white outline-none" />
                                 <button className="absolute top-0 right-0 w-10 h-full">
                                     <i className="ri-send-plane-2-line"></i>
                                 </button>
                             </div>
-                            <button className="w-fit px-5 bg-rose-700 text-sm py-2 rounded-sm hover:bg-rose-600">Subscribe Now</button>
+                            <button className="w-fit px-5 bg-rose-700 text-sm py-2 rounded-md hover:bg-rose-600">Subscribe Now</button>
                         </div>
 
                     </div>

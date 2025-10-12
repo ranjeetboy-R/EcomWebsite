@@ -101,13 +101,13 @@ const Cart = () => {
                             <div key={index} className="flex gap-10 shadow-md p-5 border border-slate-100">
                                 <img src={items.image} alt={index} className="w-[100px] h-[140px] rounded object-cover object-top " />
                                 <div className="flex flex-col gap-1">
-                                    <h1 className="text-2xl font-semibold">{items.title}</h1>
-                                    <div className="flex gap-3">
+                                    <h1 className="md:text-xl leading-tight text-md font-semibold">{items.title}</h1>
+                                    <div className="flex gap-3 md:text-md text-xs">
                                         <p className="font-semibold">₹{(items.price - ((items.price * items.discount) / 100)).toFixed(0)}</p>
                                         <del className="font-semibold">{items.price}</del>
                                         <p className="font-semibold">{items.discount}% Discount</p>
                                     </div>
-                                    <p className="capitalize">{items.description}</p>
+                                    <p className="capitalize font-mono md:text-md text-xs">{items.description}</p>
                                     <button onClick={() => removeItems(items)} className="px-3 mt-2 py-2 text-sm bg-rose-500 w-fit text-white rounded hover:bg-rose-700">
                                         <i className="ri-delete-back-line mr-2"></i>
                                         Remove Now
@@ -116,7 +116,6 @@ const Cart = () => {
                             </div>
                         ))
                     }
-
                 </div>
                 <div className="w-full flex justify-between items-center mx-auto p-5 ">
                     <div className="flex flex-col gap-1">
