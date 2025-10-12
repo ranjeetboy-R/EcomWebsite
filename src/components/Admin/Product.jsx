@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import Layout from "./layout"
+import Layout from "./Layout"
 import firebaseAppConfig from '../../util/firebase-config'
 import { getFirestore, addDoc, collection, query, getDocs, where, updateDoc, doc, deleteDoc } from "firebase/firestore"
 import { onAuthStateChanged, getAuth } from "firebase/auth"
